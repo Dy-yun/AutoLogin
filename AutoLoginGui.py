@@ -68,8 +68,8 @@ post_header = {
 }
 post_data = {
     'callback': 'dr1591477287421',
-    'DDDDD': '182017070',
-    'upass': '08232010',
+    'DDDDD': '这里输入账号',
+    'upass': '这里输入密码',
     '0MKKey': '123456',
     'R1': '0',
     'R3': '1',
@@ -110,9 +110,9 @@ def SingleLogin(ip):
         b = requests.get(ip)
         if(b.status_code == 200):
             b_bsObj = BeautifulSoup(b.text, 'html.parser')
-            baidu_input = b_bsObj.find_all("title")
-            # print(baidu_input)
-            if str(baidu_input) == "[<title>注销页</title>]":
+            nfu_input = b_bsObj.find_all("title")
+            # print(nfu_input)
+            if str(nfu_input) == "[<title>注销页</title>]":
                 Loding.set('连接成功')
                 # print(i)
                 sys.exit(0)
@@ -149,10 +149,10 @@ def MultipleLogon(ip):
     while True:
         print(ip)
         if i >= 1:
-            #top = tkinter.Tk()
+            # top = tkinter.Tk()
             # top.withdraw()
             # top.update()
-            #tkinter.messagebox.showinfo('提醒', '连接超时，正在切换ip重连')
+            # tkinter.messagebox.showinfo('提醒', '连接超时，正在切换ip重连')
             # top.destroy()
             if ip == "http://172.16.30.45/":
                 MultipleLogon("http://172.16.30.33/")
@@ -161,9 +161,9 @@ def MultipleLogon(ip):
         b = requests.get(ip)
         if(b.status_code == 200):
             b_bsObj = BeautifulSoup(b.text, 'html.parser')
-            baidu_input = b_bsObj.find_all("title")
-            # print(baidu_input)
-            if str(baidu_input) != "[<title>注销页</title>]":
+            nfu_input = b_bsObj.find_all("title")
+            # print(nfu_input)
+            if str(nfu_input) != "[<title>注销页</title>]":
                 requests.post(post_addr, data=post_data, headers=post_header)
                 i += 1
                 continue

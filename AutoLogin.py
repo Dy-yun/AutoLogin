@@ -19,8 +19,8 @@ post_header = {
 }
 post_data = {
     'callback': 'dr1591477287421',
-    'DDDDD': '182017070',
-    'upass': '08232010',
+    'DDDDD': '输入账号',
+    'upass': '输入密码',
     '0MKKey': '123456',
     'R1': '0',
     'R3': '1',
@@ -42,8 +42,8 @@ def MultipleLogon(ip):
         b = requests.get(ip)
         if(b.status_code == 200):
             b_bsObj = BeautifulSoup(b.text, 'html.parser')
-            baidu_input = b_bsObj.find_all("title")
-            if str(baidu_input) != "[<title>注销页</title>]":
+            nfu_input = b_bsObj.find_all("title")
+            if str(nfu_input) != "[<title>注销页</title>]":
                 requests.post(post_addr, data=post_data, headers=post_header)
                 i += 1
                 continue
