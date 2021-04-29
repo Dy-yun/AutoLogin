@@ -68,8 +68,8 @@ post_header = {
 }
 post_data = {
     'callback': 'dr1591477287421',
-    'DDDDD': '这里输入账号',
-    'upass': '这里输入密码',
+    'DDDDD': name,
+    'upass': pwd,
     '0MKKey': '123456',
     'R1': '0',
     'R3': '1',
